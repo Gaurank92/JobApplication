@@ -40,7 +40,7 @@ public class JobController {
         if(deleted){
             return new ResponseEntity<>("Job deleted successfully",HttpStatus.OK);
         }
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>("job not exist",HttpStatus.NOT_FOUND);
     }
 
     //@RequestMapping(value = "/jobs/{id}", method = RequestMethod.PUT)  // can also use this

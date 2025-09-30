@@ -1,12 +1,23 @@
 package com.example.firstjobapp.job;
 
+import jakarta.persistence.*;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Entity // tell that this class is treated as a entity for database,ie, it will create a table with same name as class
+//@Table(name = "job_table") // allows to change the table name from class(here-Job to job_table)..
 public class Job {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private String description;
     private String minSalary;
     private String maxSalary;
     private String location;
+
+    //** needed for JPA..as it creates instances of data during the retrieval of data from database
+    public Job() {
+    }
 
     public Job(Long id, String title, String description, String minSalary, String maxSalary, String location) {
         this.id = id;
