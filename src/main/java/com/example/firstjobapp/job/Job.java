@@ -1,5 +1,6 @@
 package com.example.firstjobapp.job;
 
+import com.example.firstjobapp.company.Company;
 import jakarta.persistence.*;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -15,8 +16,19 @@ public class Job {
     private String maxSalary;
     private String location;
 
+    @ManyToOne
+    private Company company;
+
     //** needed for JPA..as it creates instances of data during the retrieval of data from database
     public Job() {
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
     }
 
     public Job(Long id, String title, String description, String minSalary, String maxSalary, String location) {
